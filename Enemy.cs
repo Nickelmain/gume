@@ -14,7 +14,7 @@ namespace gume
         public Enemy GenerateEnemy(string enemyType)
         {          
             Random random = new Random();
-            var path = Directory.GetCurrentDirectory() + "\\DatebaseOfEnemies.json";//@"D:\VSproject\Csharp\gume\DatebaseOfItems.json";
+            var path = Directory.GetCurrentDirectory() + "\\DatebaseOfEnemies.json";
             string json = File.ReadAllText(path);
             List <Enemy> enemies = JsonConvert.DeserializeObject<List<Enemy>>(json);
             Enemy enemy = enemies.Where(enemy => enemy.Type == enemyType).OrderBy(item => random.Next()).FirstOrDefault();
@@ -24,7 +24,7 @@ namespace gume
         public Enemy GenerateEnemy()
         {
             Random random = new Random();
-            var path = Directory.GetCurrentDirectory() + "\\DatebaseOfEnemies.json";//@"D:\VSproject\Csharp\gume\DatebaseOfItems.json";
+            var path = Directory.GetCurrentDirectory() + "\\DatebaseOfEnemies.json";
             string json = File.ReadAllText(path);
             List<Enemy> enemies = JsonConvert.DeserializeObject<List<Enemy>>(json);
             Enemy enemy = enemies.OrderBy(item => random.Next()).FirstOrDefault();

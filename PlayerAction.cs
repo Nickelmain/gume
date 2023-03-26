@@ -66,7 +66,7 @@ namespace gume
             {
                 Console.WriteLine("Сундук");
                 levelManipulation.ExperienceUp(player, 3);
-                inventory.AddItem("Кольцо с сапфиром", itemsGame);
+                inventory.AddItem(LootBox.ChestLoot(itemsGame));
                 inventoryItems = inventory.GetItems().ToList();
             }
         }

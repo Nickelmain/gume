@@ -16,31 +16,7 @@ namespace gume
         public int Defense { get; set; }
         public int Bonus { get; set; }
         public string Description { get; set; }
-        public string[] AttackText { get; set; }
-        
-        
-
-
-       
-
-
-        //static public Item ItemExists(string itemName)
-        //{
-        //    var item = Items.SingleOrDefault(item => item.Name == itemName);
-
-        //    if (item != null) return item;
-        //    else
-        //    return item;
-        //}
-        //public Item() // Инициализируем список предметов
-        //{
-        //    Items = GenerateItems().ToList();
-        //}
-        //public List<Item> GetItems_() // Возвращаем список предметов в инвентаре
-        //{
-        //    return Items;
-        //}
+        public string[] AttackText { get; set; }       
     }
-
 
 }

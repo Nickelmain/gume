@@ -8,13 +8,10 @@ namespace gume
 {
     public class LootBox : Item
     {
-        static public Item ChestLoot()
+        static public Item ChestLoot(List<Item> item_list)
         {
-            var itemCollection = new ItemCollection();
-            itemCollection.GenerateItems();
-            List<Item> gameItems = itemCollection.itemCollection;
             Random random = new Random();
-            return gameItems.OrderBy(item => random.Next()).FirstOrDefault();           
+            return item_list.OrderBy(item => random.Next()).FirstOrDefault();           
         }
     }
 }
