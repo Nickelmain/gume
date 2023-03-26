@@ -11,10 +11,10 @@ namespace gume
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
+        public string Rare { get; set; }
         public int Damage { get; set; }
         public int Defense { get; set; }
-        public int Bonus { get; set; }
+        public Object Bonus { get; set; }
         public string Description { get; set; }
         public string[] AttackText { get; set; }       
     }

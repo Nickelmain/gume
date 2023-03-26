@@ -66,7 +66,7 @@ namespace gume
             {
                 Console.WriteLine("Сундук");
                 levelManipulation.ExperienceUp(player, 3);
-                inventory.AddItem(LootBox.ChestLoot(itemsGame));
+                inventory.AddItem(LootBox.TerribleChest(itemsGame));
                 inventoryItems = inventory.GetItems().ToList();
             }
         }
