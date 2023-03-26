@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace gume
 {
-    public class Item : ItemCollection
+    public class Item 
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -22,11 +22,11 @@ List<Item> gameItems = itemCollection.itemCollection;
 //}
 Console.WriteLine("Count: " + itemCollection.itemCollection.Count());
 Console.ReadLine();
-inventory.AddItem("Бронзовый шлем");
+inventory.AddItem("Бронзовый шлем", gameItems);
 List<Item> inventoryItems = inventory.GetItems().ToList();
 
 display.StartingText();
 player = player.ChoicePLayerClass();
 display.Greeting(player);
-playerAct.game(player, inventoryItems, inventory);
+playerAct.game(player, inventoryItems, inventory, gameItems);
 

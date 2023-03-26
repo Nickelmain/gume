@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 namespace gume
 {
-    public class Inventory : Item
+    public class Inventory : ItemCollection
     {
         public int Count { get; set; }
         private List<Item> items; // Список предметов в инвентаре
@@ -15,11 +15,12 @@ namespace gume
         {
             items = new List<Item>();
         }
-        public void AddItem(string itemName) // Добавление предмета в инвентарь
+        public void AddItem(string itemName, List<Item> game_items) // Добавление предмета в инвентарь
         {
             //var itemCollection = new ItemCollection();
-            //List<Item> temp = itemCollection;
-            var itemCollection_ = itemCollection.FirstOrDefault(item => item.Name == itemName);
+            
+            var itemCollection_ = game_items.FirstOrDefault(item => item.Name == itemName);
+         
             items.Add(itemCollection_);
         }
         public void RemoveItem(Item item) // Удаление предмета из инвентаря

@@ -8,7 +8,7 @@ namespace gume
 {
     public class PlayerAction
     {
-        public void game(Player player, List<Item> inventoryItems, Inventory inventory)
+        public void game(Player player, List<Item> inventoryItems, Inventory inventory, List<Item> itemsGame)
         {
             var display = new Display();
             display.StartingText();
@@ -22,7 +22,7 @@ namespace gume
                 if (choice == 1)
                 {
                     display.StartingText();
-                    GoAhead(player, ref inventoryItems, inventory);
+                    GoAhead(player, ref inventoryItems, inventory, itemsGame);
                 }
                 else if (choice == 2)
                 {
@@ -45,7 +45,7 @@ namespace gume
             }   
         }
 
-        public void GoAhead(Player player, ref List<Item> inventoryItems, Inventory inventory)
+        public void GoAhead(Player player, ref List<Item> inventoryItems, Inventory inventory, List<Item> itemsGame)
         {
             var levelManipulation = new LevelManipulation();
             player.passedCells++;
@@ -66,7 +66,7 @@ namespace gume
             {
                 Console.WriteLine("Сундук");
                 levelManipulation.ExperienceUp(player, 3);
-                inventory.AddItem("Кольцо с сапфиром");
+                inventory.AddItem("Кольцо с сапфиром", itemsGame);
                 inventoryItems = inventory.GetItems().ToList();
             }
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace gume
 {
-    public class ItemCollection
+    public class ItemCollection : Item
     {
         [JsonProperty("Оружие")]
         public List<Item> Weapons { get; set; }
