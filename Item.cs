@@ -10,6 +10,7 @@ namespace gume
     public class Item 
     {
         public int Id { get; set; }
+        public int InventoryPosition { get; set; }
         public string Name { get; set; }
         public string Rare { get; set; }
         public int Damage { get; set; }

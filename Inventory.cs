@@ -9,29 +9,28 @@ namespace gume
     public class Inventory : ItemCollection
     {
         public int Count { get; set; }
-        public int InventoryPosition { get; set; }
-        private List<Item> items; // Список предметов в инвентаре
+        private List<Item> inventoryItems; // Список предметов в инвентаре
 
         public Inventory() // Инициализируем список предметов
         {
-            items = new List<Item>();
+            inventoryItems = new List<Item>();
         }
         public void AddItem(string itemName, List<Item> game_items) // Добавление предмета в инвентарь
         {           
-            var itemCollection_ = game_items.FirstOrDefault(item => item.Name == itemName);        
-            items.Add(itemCollection_);
+            var receivedItem = game_items.FirstOrDefault(item => item.Name == itemName);        
+            inventoryItems.Add(receivedItem);
         }
         public void AddItem(Item item) // Добавление предмета в инвентарь
         {          
-            items.Add(item);
+            inventoryItems.Add(item);
         }
         public void RemoveItem(Item item) // Удаление предмета из инвентаря
         {
-            items.Remove(item);
+            inventoryItems.Remove(item);
         }
         public List<Item> GetItems() // Возвращаем список предметов в инвентаре
         {
-            return items;
+            return inventoryItems;
         }
         
     }
