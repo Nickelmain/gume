@@ -26,8 +26,9 @@ namespace gume
                 }
                 else if (choice == 2)
                 {
-                    display.StartingText();
-                    display.SetInventory(inventoryItems);     
+                    //display.StartingText();
+                    //display.SetInventory(inventoryItems);
+                    inventory.InventoryManipulation();
                 }
                 else if (choice == 3)
                 {
@@ -64,9 +65,13 @@ namespace gume
             }
             else
             {
-                Console.WriteLine("Сундук");
+                Console.WriteLine("Вы наткнулись на чей-то схрон!");
                 levelManipulation.ExperienceUp(player, 3);
-                inventory.AddItem(LootBox.ChestSelection(itemsGame));
+                Item item = (LootBox.ChestSelection(itemsGame));
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nПолучен предмет: {item.Name}");
+                inventory.AddItem(item);
+                Console.ResetColor();
                 inventoryItems = inventory.GetItems().ToList();
             }
         }

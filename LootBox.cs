@@ -12,16 +12,15 @@ namespace gume
         {
             Random random = new Random();
             int num = random.Next(1,251);
-            Console.WriteLine(num);
-            if (num <= 5)//5
+            if (num <= 5)//5 - 2%
                 return LegendaryChest(item_list);
-            else if (num <= 21)//15
+            else if (num <= 21)//15 - 6%
                 return BeautifulChest(item_list); 
-            else if (num <= 57)//35
+            else if (num <= 57)//35 - 14%
                 return GoodChest(item_list); 
-            else if (num <= 148)//90
+            else if (num <= 148)//90 - 36%
                 return NormalChest(item_list); 
-            else//105
+            else//105 - 42%
                 return TerribleChest(item_list); 
         }
 

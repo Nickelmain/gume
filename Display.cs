@@ -25,14 +25,24 @@ namespace gume
         }
         public void SetInventory(List<Item> inventory)
         {
+            StartingText();
             Console.WriteLine("\nИнвентарь:");
-            if (inventory.Count() == 0) Console.WriteLine("Ваш инвентарь пуст!");
+            if (inventory.Count() == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Ваш инвентарь пуст!");
+                Console.ResetColor();
+            }            
             else
             {
+                StartingText();
                 foreach (var item in inventory)
                 {
-                    Console.WriteLine(item.Name);
+
+                    item.InventoryPosition = Inventory.LastItem++;
+                    Console.WriteLine($"<{item.InventoryPosition}>{item.Name}");
                 }
+                Inventory.LastItem = 1;
             }         
         }
 

@@ -33,23 +33,23 @@ namespace gume
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Level Up!");
                 Console.ResetColor();
-                levels.test(player);
+                //levels.test(player);
             }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("NO!");
-                Console.ResetColor();
-                var display = new Display();
-                display.SetCharacteristics(player);
-            }
+            //else
+            //{
+            //    Console.ForegroundColor = ConsoleColor.Red;
+            //    Console.WriteLine("NO!");
+            //    Console.ResetColor();
+            //    var display = new Display();
+            //    display.SetCharacteristics(player);
+            //}
         }
 
-        public void test(Player player)
-        {
-            var display = new Display();
-            display.SetCharacteristics(player);
-        }
+        //public void test(Player player)
+        //{
+        //    var display = new Display();
+        //    display.SetCharacteristics(player);
+        //}
 
     }
 }

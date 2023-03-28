@@ -9,6 +9,7 @@ namespace gume
     public class Inventory : ItemCollection
     {
         public int Count { get; set; }
+        static public int LastItem = 1;
         private List<Item> inventoryItems; // Список предметов в инвентаре
 
         public Inventory() // Инициализируем список предметов
@@ -31,6 +32,46 @@ namespace gume
         public List<Item> GetItems() // Возвращаем список предметов в инвентаре
         {
             return inventoryItems;
+        }
+
+        public void InventoryManipulation()
+        {
+            var display = new Display();
+            int choice;
+            if (inventoryItems.Count == 0)
+                display.SetInventory(inventoryItems);
+            else
+                while (true)
+                {
+                    display.SetInventory(inventoryItems);
+                    Console.WriteLine("\nВыбери предмет для действия:");
+                    Console.Write("Ввод: ");
+                    int choiceItem = int.Parse(Console.ReadLine());
+
+                    if (choiceItem > inventoryItems.Count)
+                        continue;
+                    else
+                    {
+                        display.StartingText();
+                        Console.WriteLine($"Вы взяли в руки {inventoryItems[choiceItem - 1].Name}");
+                        Console.WriteLine("Что с ним сделать?");
+                        Console.WriteLine("<1> Положить обратно\n<2> Выбросить");
+                        Console.Write("Ввод: ");
+                        choice = int.Parse(Console.ReadLine());
+                        if (choice == 1)
+                            continue;
+                        if (choice == 2)
+                        {
+                            display.StartingText();
+                            Console.WriteLine("Вы в этом уверены?");
+                            Console.WriteLine("<1> Да\n<2> Нет");
+                            Console.Write("Ввод: ");
+                            choice = int.Parse(Console.ReadLine());
+                            if (choice == 1)
+                                RemoveItem(inventoryItems[choiceItem - 1]);
+                        }                              
+                    }                       
+                }
         }
         
     }
