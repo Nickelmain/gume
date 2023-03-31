@@ -12,6 +12,7 @@ namespace gume
         public int Id { get; set; }
         public int InventoryPosition { get; set; }
         public string Name { get; set; }
+        public string ItemType { get; set; }
         public string Rare { get; set; }
         public int Damage { get; set; }
         public int Defense { get; set; }

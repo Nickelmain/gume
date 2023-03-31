@@ -11,7 +11,6 @@ namespace gume
         public Paladin()
         {
             this.className = "Паладин";
-            this.name = Console.ReadLine();
             this.health = this.maxHealth = 40;
             this.mana = this.maxMana = 10;
             this.level = 1;

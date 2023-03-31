@@ -25,7 +25,7 @@ namespace gume
         public void LevelUp(Player player) // Повышение уровня, если соблюдены условия
         {
             var levels = new LevelManipulation();
-            if(SufficientExperience(player) && (player.level < player.maxLevel))
+            while(SufficientExperience(player) && (player.level < player.maxLevel))
             {
                 player.level++;
                 player.experience -= player.requiredExperience;
@@ -33,16 +33,10 @@ namespace gume
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Level Up!");
                 Console.ResetColor();
-                //levels.test(player);
+                
             }
-            //else
-            //{
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine("NO!");
-            //    Console.ResetColor();
-            //    var display = new Display();
-            //    display.SetCharacteristics(player);
-            //}
+            var display = new Display();
+            display.SetCharacteristics(player);
         }
 
         //public void test(Player player)

@@ -12,6 +12,13 @@ namespace gume
         {
             var display = new Display();
             display.StartingText();
+            if (player.className == "Колдун")
+            {
+                var levelManipulation = new LevelManipulation();
+                levelManipulation.ExperienceUp(player, 50);
+            }
+
+
             while (true)
             {
                 Console.WriteLine("\nВыбери действие:");

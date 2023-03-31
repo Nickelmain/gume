@@ -39,22 +39,33 @@ namespace gume
             var display = new Display();
             int choice;
             if (inventoryItems.Count == 0)
+            {
                 display.SetInventory(inventoryItems);
+                return;
+            }                
             else
                 while (true)
                 {
+                    if (inventoryItems.Count == 0)
+                    {
+                        display.SetInventory(inventoryItems);
+                        return;
+                    }
                     display.SetInventory(inventoryItems);
-                    Console.WriteLine("\nВыбери предмет для действия:");
+                    Console.WriteLine("\nВыбери предмет для действия или введи 0, чтобы вернуться к походу:");
                     Console.Write("Ввод: ");
                     int choiceItem = int.Parse(Console.ReadLine());
 
-                    if (choiceItem > inventoryItems.Count)
+                    if (choiceItem == 0)
+                        return;
+                    else if (choiceItem > inventoryItems.Count || choiceItem < 0)
                         continue;
                     else
                     {
                         display.StartingText();
                         Console.WriteLine($"Вы взяли в руки {inventoryItems[choiceItem - 1].Name}");
-                        Console.WriteLine("Что с ним сделать?");
+                        display.SetItem(inventoryItems[choiceItem - 1]);
+                        Console.WriteLine("\nЧто с ним сделать?");
                         Console.WriteLine("<1> Положить обратно\n<2> Выбросить");
                         Console.Write("Ввод: ");
                         choice = int.Parse(Console.ReadLine());
@@ -69,7 +80,7 @@ namespace gume
                             choice = int.Parse(Console.ReadLine());
                             if (choice == 1)
                                 RemoveItem(inventoryItems[choiceItem - 1]);
-                        }                              
+                        }
                     }                       
                 }
         }

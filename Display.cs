@@ -29,7 +29,7 @@ namespace gume
             Console.WriteLine("\nИнвентарь:");
             if (inventory.Count() == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Ваш инвентарь пуст!");
                 Console.ResetColor();
             }            
@@ -58,13 +58,15 @@ namespace gume
             Console.WriteLine($"Пройденный путь: {player.passedCells} км");
         }
 
-        public void SetItems(List<Item> items)
+        public void SetItem(Item item)
         {
-            Console.WriteLine("\nИнвентарь:");
-            foreach (var item in items)
-            {
-                Console.WriteLine(item.Name);
-            }
+            Console.WriteLine("\nХарактеристики:");
+            Console.WriteLine($"Описание: {item.Description}");
+            Console.WriteLine($"Тип: {item.ItemType}");
+            Console.WriteLine($"Редкость: {item.Rare}");
+            Console.WriteLine($"Бонус: {(item.Bonus == null ? "Отсутствует" : item.Bonus)}");
+            Console.WriteLine($"Урон: {(item.Damage == 0 ? "Отсутствует" : item.Damage)}");
+            Console.WriteLine($"Защита: {(item.Defense == 0 ? "Отсутствует" : item.Defense)}");           
         }
     }
 }

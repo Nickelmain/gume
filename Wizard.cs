@@ -11,7 +11,6 @@ namespace gume
         public Wizard()
         {
             this.className = "Колдун";
-            this.name = Console.ReadLine();
             this.health = this.maxHealth = 15;
             this.mana = this.maxMana = 25;
             this.level = 1;
